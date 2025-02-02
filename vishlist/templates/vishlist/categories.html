@@ -1,0 +1,332 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .category {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .category:hover {
+            transform: scale(1.05);
+        }
+
+        .category h2 {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 1rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .slider img {
+            width: 100%;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .slider img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-page {
+            display: none;
+            padding: 2rem;
+        }
+
+        .product-page.active {
+            display: block;
+        }
+
+        .product-details {
+            margin-top: 1rem;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            background-color: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e0554b;
+        }
+
+        .back-btn {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore Our Categories</h1>
+    </header>
+
+    <div class="categories">
+        <div class="category" onclick="openProductPage('ethnic')">
+            <h2>Ethnic Wear</h2>
+            <div class="slider">
+                <img src="{% static 'vishlist/images/ethnic1.jpg' %}" alt="Ethnic Wear 1">
+                <img src="{% static 'vishlist/images/ethnic2.jpeg' %}" alt="Ethnic Wear 2">
+                <img src="{% static 'vishlist/images/ethnic3.jpg' %}" alt="Ethnic Wear 3">
+                <img src="{% static 'vishlist/images/ethnic4.jpeg' %}" alt="Ethnic Wear 4">
+                <img src="{% static 'vishlist/images/ethnic5.jpeg' %}" alt="Ethnic Wear 5">
+            </div>
+        </div>
+
+        <div class="category" onclick="openProductPage('tops')">
+            <h2>Tops and Tunics</h2>
+            <div class="slider">
+                <img src="{% static 'vishlist/images/top1.jpg' %}" alt="Gen Z 1">
+                <img src="{% static 'vishlist/images/top2.jpg' %}" alt="Gen Z 2">
+                <img src="{% static 'vishlist/images/top3.jpg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/top4.jpg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/top5.jpeg' %}" alt="Gen Z 3">
+            </div>
+        </div>
+
+        <div class="category" onclick="openProductPage('bottoms')">
+            <h2>Bottoms</h2>
+            <div class="slider">
+                <img src="{% static 'vishlist/images/pant1.jpg' %}" alt="Gen Z 1">
+                <img src="{% static 'vishlist/images/pant2.jpeg' %}" alt="Gen Z 2">
+                <img src="{% static 'vishlist/images/pant3.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/pant4.jpg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/pant5.jpg' %}" alt="Gen Z 3">
+            </div>
+        </div>
+
+        <div class="category" onclick="openProductPage('jackets')">
+            <h2>Jackets and Knitwear</h2>
+            <div class="slider">
+                <img src="{% static 'vishlist/images/jacket1.jpeg' %}" alt="Gen Z 1">
+                <img src="{% static 'vishlist/images/jacket2.jpeg' %}" alt="Gen Z 2">
+                <img src="{% static 'vishlist/images/jacket3.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/jacket4.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/jacket5.jpeg' %}" alt="Gen Z 3">
+            </div>
+        </div>
+
+        <div class="category" onclick="openProductPage('dresses')">
+            <h2>Dresses</h2>
+            <div class="slider">
+                <img src="{% static 'vishlist/images/dress1.jpeg' %}" alt="Gen Z 1">
+                <img src="{% static 'vishlist/images/dress2.jpeg' %}" alt="Gen Z 2">
+                <img src="{% static 'vishlist/images/dress3.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/dress4.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/dress5.jpeg' %}" alt="Gen Z 3">
+            </div>
+        </div>
+
+        <div class="category" onclick="openProductPage('accessories')">
+            <h2>Accessories</h2>
+            <div class="slider">
+                <img src="{% static 'vishlist/images/acc1.jpeg' %}" alt="Gen Z 1">
+                <img src="{% static 'vishlist/images/acc2.jpeg' %}" alt="Gen Z 2">
+                <img src="{% static 'vishlist/images/acc3.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/acc4.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/acc5.jpeg' %}" alt="Gen Z 3">
+            </div>
+        </div>
+
+        <div class="category" onclick="openProductPage('accessories')">
+            <h2>Makeup</h2>
+            <div class="slider">
+                <img src="{% static 'vishlist/images/makeup1.jpeg' %}" alt="Gen Z 1">
+                <img src="{% static 'vishlist/images/makeup2.jpeg' %}" alt="Gen Z 2">
+                <img src="{% static 'vishlist/images/makeup3.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/makeup4.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/makeup5.jpeg' %}" alt="Gen Z 3">
+            </div>
+        </div>
+
+        <div class="category" onclick="openProductPage('accessories')">
+            <h2>Footwear</h2>
+            <div class="slider">
+                <img src="{% static 'vishlist/images/foot1.jpeg' %}" alt="Gen Z 1">
+                <img src="{% static 'vishlist/images/foot2.jpeg' %}" alt="Gen Z 2">
+                <img src="{% static 'vishlist/images/foot3.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/foot4.jpeg' %}" alt="Gen Z 3">
+                <img src="{% static 'vishlist/images/foot5.jpeg' %}" alt="Gen Z 3">
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- Add more categories as needed -->
+    </div>
+
+    <div id="ethnic" class="product-page">
+        <a href="#" class="btn back-btn" onclick="closeProductPage()">Back to Categories</a>
+        <h2>Ethnic Wear</h2>
+        <div class="product-details">
+            <p><strong>Price:</strong> ₹2000</p>
+            <p><strong>Size:</strong> S, M, L, XL</p>
+            <p><strong>Delivery:</strong> Enter pincode to check delivery date</p>
+            <p><strong>Reviews:</strong> ★★★★☆</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Customize</a>
+        </div>
+    </div>
+
+    <div id="tops" class="product-page">
+        <a href="#" class="btn back-btn" onclick="closeProductPage()">Back to Categories</a>
+        <h2>Tops and Tunics</h2>
+        <div class="product-details">
+            <p><strong>Price:</strong> ₹1500</p>
+            <p><strong>Size:</strong> S, M, L, XL</p>
+            <p><strong>Delivery:</strong> Enter pincode to check delivery date</p>
+            <p><strong>Reviews:</strong> ★★★★☆</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Customize</a>
+        </div>
+    </div>
+
+    <div id="bottoms" class="product-page">
+        <a href="#" class="btn back-btn" onclick="closeProductPage()">Back to Categories</a>
+        <h2>Bottoms</h2>
+        <div class="product-details">
+            <p><strong>Price:</strong> ₹1100</p>
+            <p><strong>Size:</strong> S, M, L, XL</p>
+            <p><strong>Delivery:</strong> Enter pincode to check delivery date</p>
+            <p><strong>Reviews:</strong> ★★★★☆</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Customize</a>
+        </div>
+    </div>
+
+    <div id="jackets" class="product-page">
+        <a href="#" class="btn back-btn" onclick="closeProductPage()">Back to Categories</a>
+        <h2>Jackets and Knitwear</h2>
+        <div class="product-details">
+            <p><strong>Price:</strong> ₹3500</p>
+            <p><strong>Size:</strong> S, M, L, XL</p>
+            <p><strong>Delivery:</strong> Enter pincode to check delivery date</p>
+            <p><strong>Reviews:</strong> ★★★★☆</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Customize</a>
+        </div>
+    </div>
+
+    <div id="dresses" class="product-page">
+        <a href="#" class="btn back-btn" onclick="closeProductPage()">Back to Categories</a>
+        <h2>Dresses</h2>
+        <div class="product-details">
+            <p><strong>Price:</strong> ₹3500</p>
+            <p><strong>Size:</strong> S, M, L, XL</p>
+            <p><strong>Delivery:</strong> Enter pincode to check delivery date</p>
+            <p><strong>Reviews:</strong> ★★★★☆</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Customize</a>
+        </div>
+    </div>
+
+    <div id="accessories" class="product-page">
+        <a href="#" class="btn back-btn" onclick="closeProductPage()">Back to Categories</a>
+        <h2>Accessories</h2>
+        <div class="product-details">
+            <p><strong>Price:</strong> ₹3500</p>
+            <p><strong>Size:</strong> S, M, L, XL</p>
+            <p><strong>Delivery:</strong> Enter pincode to check delivery date</p>
+            <p><strong>Reviews:</strong> ★★★★☆</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Customize</a>
+        </div>
+    </div>
+
+    <div id="Makeup" class="product-page">
+        <a href="#" class="btn back-btn" onclick="closeProductPage()">Back to Categories</a>
+        <h2>Makeup</h2>
+        <div class="product-details">
+            <p><strong>Price:</strong> ₹3500</p>
+            <p><strong>Size:</strong> S, M, L, XL</p>
+            <p><strong>Delivery:</strong> Enter pincode to check delivery date</p>
+            <p><strong>Reviews:</strong> ★★★★☆</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Customize</a>
+        </div>
+    </div>
+
+    <div id="Footwear" class="product-page">
+        <a href="#" class="btn back-btn" onclick="closeProductPage()">Back to Categories</a>
+        <h2>Footwear</h2>
+        <div class="product-details">
+            <p><strong>Price:</strong> ₹3500</p>
+            <p><strong>Size:</strong> S, M, L, XL</p>
+            <p><strong>Delivery:</strong> Enter pincode to check delivery date</p>
+            <p><strong>Reviews:</strong> ★★★★☆</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="#" class="btn">Customize</a>
+        </div>
+    </div>
+
+
+
+    <script>
+        function openProductPage(categoryId) {
+            document.querySelectorAll('.product-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(categoryId).classList.add('active');
+            document.querySelector('.categories').style.display = 'none';
+        }
+
+        function closeProductPage() {
+            document.querySelectorAll('.product-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.querySelector('.categories').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

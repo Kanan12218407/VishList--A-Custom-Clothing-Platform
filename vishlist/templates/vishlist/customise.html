@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VishList - Customize Your Clothes</title>
+    <link rel="stylesheet" href="{% static 'vishlist/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- For icons -->
+    <style>
+       /* Basic resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+        height: 100%;
+        font-family: 'Arial', sans-serif;
+        background: url('{% static "vishlist/images/background.png" %}') no-repeat center center/cover;
+
+.logo img {
+        width: 190px; /* Adjust logo size */
+            
+    }
+
+
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.logo img {
+    width: 155px; /* Adjust logo size */
+}
+
+.logo span {
+    font-size: 27px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 10px;
+}
+
+/* Navbar links */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FF13F0;
+}
+
+/* Login/Signup buttons */
+.user-options a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.user-options a:hover {
+    color: #FF13F0;
+}
+
+/* Landing section (centered content) */
+.landing-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6); /* Overlay for text contrast */
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideIn 1s ease-out;
+}
+
+.cta-btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #FF13F0;
+    border: purple;
+    border-radius: 20px; /* Rounded corners */
+    font-family: 'Roboto', sans-serif; /* Change to a new font */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    animation: bounce 2s infinite;
+}
+
+.cta-btn:hover {
+    background-color:  #B026FF;
+}
+}
+
+/* Keyframe animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="{% static 'vishlist/images/logo-no-background.png' %}" alt="VishList Logo">
+               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="user-options">
+                <a href="login_signup.html">Login</a> | <a href="login_signup.html">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="landing-section">
+        <div class="content">
+            <h1>From Vision to Vogue</h1>
+            <a href="/login_signup/" class="cta-btn">Start Customizing</a>
+        </div>
+    </section>
+
+    
+</body>
+</html>
